@@ -15,6 +15,7 @@ public class SpringBootSoapClientApplication {
 		SpringApplication.run(SpringBootSoapClientApplication.class, args);
 	}
 
+	/*
 	@Bean
 	CommandLineRunner lookup(SOAPConnector soapConnector) {
 		return args -> {
@@ -32,4 +33,21 @@ public class SpringBootSoapClientApplication {
 			System.out.println("Address : " + response.getStudent().getAddress());
 		};
 	}
+	*/
+	
+	@Bean
+	CommandLineRunner lookup(StudentDetailsClient studentDetailsClient) {
+		return args -> {
+			String name = "Sajal";// Default Name
+			if (args.length > 0) {
+				name = args[0];
+			}
+			StudentDetailsResponse response = (StudentDetailsResponse) studentDetailsClient.getStudentDetails(name);
+			System.out.println("Got Response As below ========= : ");
+			System.out.println("Name : " + response.getStudent().getName());
+			System.out.println("Standard : " + response.getStudent().getStandard());
+			System.out.println("Address : " + response.getStudent().getAddress());
+		};
+	}
+	
 }
