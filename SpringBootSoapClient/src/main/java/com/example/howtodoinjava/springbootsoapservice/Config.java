@@ -17,7 +17,16 @@ public class Config {
 	@Bean
 	public SOAPConnector soapConnector(Jaxb2Marshaller marshaller) {
 		SOAPConnector client = new SOAPConnector();
-		client.setDefaultUri("");
+		client.setDefaultUri("http://localhost:8080/service/student-details");
+		client.setMarshaller(marshaller);
+		client.setUnmarshaller(marshaller);
+		return client;
+	}
+
+	@Bean
+	public StudentDetailsClient studentDetailsClient(Jaxb2Marshaller marshaller) {
+		StudentDetailsClient client = new StudentDetailsClient();
+		client.setDefaultUri("http://localhost:8080/service/student-details");
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);
 		return client;
