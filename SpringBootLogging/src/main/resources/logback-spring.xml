@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Configure Logback for File-only Output
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+	<include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
+ -->
+ 
+<!-- 
+ The configuration does the following:
+
+ 	Set up a appender STDOUT using ConsoleAppender which prints to the console
+    Provide a pattern to the appender to build the log message
+    Set up a root logger which logs any message above INFO level using the STDOUT appender
+ 
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+-->
+
+<!-- 
+	Set the log level to WARN for com.foanequity.research.logging.service package and to INFO 
+	for com.foanequity.research.logging.model 
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.foanequity.research.logging.service" level="WARN" />
+
+	<logger name="com.foanequity.research.logging.model" level="INFO" />
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
+-->
+
+<!-- 
+	Sending the log messages to a file
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>Application.log</file>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<logger name="com.foanequity.research.logging.service" level="WARN">
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="com.foanequity.research.logging.model" level="INFO">
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
+ -->
+ 
+ <!-- Making use of default logback configuration base.xml -->
+ <configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<logger name="com.foanequity.research.logging.service" level="WARN"></logger>
+	<logger name="com.foanequity.research.logging.model" level="INFO"></logger>
+</configuration>
