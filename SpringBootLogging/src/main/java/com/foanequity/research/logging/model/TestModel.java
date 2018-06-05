@@ -2,7 +2,9 @@ package com.foanequity.research.logging.model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TestModel {
 
 	private static final Logger logger = LoggerFactory.getLogger(TestModel.class);

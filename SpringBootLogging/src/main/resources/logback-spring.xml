@@ -82,9 +82,37 @@ Configure Logback for File-only Output
 </configuration>
  -->
  
- <!-- Making use of default logback configuration base.xml -->
+ <!-- Making use of default logback configuration base.xml 
  <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
 	<logger name="com.foanequity.research.logging.service" level="WARN"></logger>
 	<logger name="com.foanequity.research.logging.model" level="INFO"></logger>
+</configuration>
+-->
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="RollingFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/RollingFileAppender.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{MM:dd HH:mm:ss.SSS} [%t] [%level] [%logger{36}] - %msg%n
+			</Pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/ApplicationRolling_%d{dd-MM-yyyy}.log
+			</fileNamePattern>
+			<maxHistory>10</maxHistory>
+			<totalSizeCap>10KB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+	<root level="info">
+		<appender-ref ref="ConsoleAppender" />
+		<appender-ref ref="RollingFileAppender" />
+	</root>
 </configuration>
