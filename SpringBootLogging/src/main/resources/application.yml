@@ -1,0 +1,5 @@
+#Making use of default logback configuration base.xml
+#logging.file=ApplicationLogDefaultLogBackConfig.log
+
+logging:
+  path: /home/acristobal/workspace-research/research/SpringBootLogging/

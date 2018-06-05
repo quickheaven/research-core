@@ -1,6 +1,9 @@
 .metadata/
 .recommenders/
 RemoteSystemsTempFiles/
+Servers/
 
+*/school/
+*.log
 *.class
 */target/
