@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Decoder Encoder</title>
+</head>
+<body>
+<p>Hello <span th:text="${name}">name-goes-here</span> from a Thymeleaf page! Just for fun! A safe way to decode / encode. </p>
+
+<form action="/action_page.php">
+    <p><label for="text">URL Decode / Encode:</label></p>
+    <textarea id="text" name="text" rows="20" cols="80" placeholder="Enter the text that you want to encode or decode."></textarea>
+    <br>
+    <input type="button" value="Decode" onclick="document.getElementById('text').value=decodeURI(document.getElementById('text').value);">&nbsp;
+    <input type="button" value="Encode" onclick="document.getElementById('text').value=encodeURI(document.getElementById('text').value);">
+</form>
+
+</body>
+</html>
