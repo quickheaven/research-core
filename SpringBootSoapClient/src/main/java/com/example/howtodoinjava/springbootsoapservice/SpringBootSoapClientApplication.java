@@ -49,5 +49,5 @@ public class SpringBootSoapClientApplication {
 			System.out.println("Address : " + response.getStudent().getAddress());
 		};
 	}
-	
+
 }
