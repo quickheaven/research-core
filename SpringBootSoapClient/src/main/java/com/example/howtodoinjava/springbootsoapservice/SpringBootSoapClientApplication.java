@@ -1,12 +1,10 @@
 package com.example.howtodoinjava.springbootsoapservice;
 
+import com.example.howtodoinjava.schemas.school.StudentDetailsResponse;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import com.example.howtodoinjava.schemas.school.StudentDetailsRequest;
-import com.example.howtodoinjava.schemas.school.StudentDetailsResponse;
 
 @SpringBootApplication
 public class SpringBootSoapClientApplication {

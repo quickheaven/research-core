@@ -1,9 +1,8 @@
 package com.example.howtodoinjava.springbootsoapservice;
 
-import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
-
 import com.example.howtodoinjava.schemas.school.StudentDetailsRequest;
 import com.example.howtodoinjava.schemas.school.StudentDetailsResponse;
+import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 public class StudentDetailsClient extends WebServiceGatewaySupport {
 
