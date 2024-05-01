@@ -51,33 +51,65 @@
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.3.4</version>
 		</dependency>
+		<!-- Fixed: Generate Java objects based on xsd. -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.activation</groupId>
+			<artifactId>jakarta.activation</artifactId>
+			<version>1.2.1</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<id>xjc</id>
-						<goals>
-							<goal>xjc</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>
-					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-					<clearOutputDir>false</clearOutputDir>
-				</configuration>
-			</plugin>
-		</plugins>
+		<!-- Fixed: Generate Java objects based on xsd. Put the plugins inside the pluginManagement and add dependencies. -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>jaxb2-maven-plugin</artifactId>
+					<version>2.5.0</version>
+					<executions>
+						<execution>
+							<id>xjc</id>
+							<goals>
+								<goal>xjc</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<!-- Fixed: Staring 2.1, used sources instead of schemaDirectory. -->
+						<!-- schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory -->
+						<sources>
+							<source>${project.basedir}/src/main/resources/school.xsd</source>
+						</sources>
+						<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+						<clearOutputDir>false</clearOutputDir>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.glassfish.jaxb</groupId>
+							<artifactId>jaxb-xjc</artifactId>
+							<version>2.3.2</version>
+						</dependency>
+						<dependency>
+							<groupId>com.sun.activation</groupId>
+							<artifactId>jakarta.activation</artifactId>
+							<version>1.2.1</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 
