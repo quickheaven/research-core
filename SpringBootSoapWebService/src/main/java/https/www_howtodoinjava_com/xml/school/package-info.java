@@ -5,5 +5,5 @@
 // Generated on: 2024.04.30 at 10:11:54 PM EDT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "https://www.howtodoinjava.com/xml/school", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "https://www.howtodoinjava.com/xml/school", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package https.www_howtodoinjava_com.xml.school;
