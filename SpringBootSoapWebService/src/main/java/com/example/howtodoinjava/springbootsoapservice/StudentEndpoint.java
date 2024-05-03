@@ -1,13 +1,14 @@
 package com.example.howtodoinjava.springbootsoapservice;
 
+import com.howtodoinjava.xml.school.StudentDetailsRequest;
+import com.howtodoinjava.xml.school.StudentDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import https.www_howtodoinjava_com.xml.school.StudentDetailsRequest;
-import https.www_howtodoinjava_com.xml.school.StudentDetailsResponse;
+
 
 @Endpoint
 public class StudentEndpoint {

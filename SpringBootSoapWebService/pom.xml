@@ -45,18 +45,11 @@
 			<artifactId>jakarta.xml.bind-api</artifactId>
 			<version>4.0.1</version>
 		</dependency>
-		<!-- Fixed: Implementation of JAXB-API has not been found on module path or classpath -->
+		<!-- Fixed: Implementation of JAXB-API has not been found on module path or classpath; Generate Java objects based on xsd. -->
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
 			<version>4.0.4</version>
-		</dependency>
-		<!-- Fixed: Generate Java objects based on xsd. -->
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-			<version>4.0.4</version>
-			<scope>runtime</scope>
 		</dependency>
 		<!--
 		<dependency>
@@ -85,7 +78,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>jaxb2-maven-plugin</artifactId>
-					<version>2.5.0</version>
+					<version>3.1.0</version><!-- Fixed -->
 					<executions>
 						<execution>
 							<id>xjc</id>
@@ -116,6 +109,23 @@
 							<version>1.2.2</version>
 						</dependency>
 						-->
+						<dependency>
+							<groupId>jakarta.activation</groupId>
+							<artifactId>jakarta.activation-api</artifactId>
+							<version>2.1.2</version>
+							<scope>runtime</scope>
+						</dependency>
+						<!-- Fixed: Caused by: java.lang.ClassNotFoundException: jakarta.xml.bind.annotation.XmlAccessType -->
+						<dependency>
+							<groupId>jakarta.xml.bind</groupId>
+							<artifactId>jakarta.xml.bind-api</artifactId>
+							<version>4.0.1</version>
+						</dependency>
+						<dependency>
+							<groupId>org.glassfish.jaxb</groupId>
+							<artifactId>jaxb-runtime</artifactId>
+							<version>4.0.4</version>
+						</dependency>
 						<dependency>
 							<groupId>jakarta.activation</groupId>
 							<artifactId>jakarta.activation-api</artifactId>
