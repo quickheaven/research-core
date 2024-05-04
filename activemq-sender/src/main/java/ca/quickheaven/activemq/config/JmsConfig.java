@@ -5,7 +5,7 @@ import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.jms.Queue;
+import jakarta.jms.Queue;
 
 @Configuration
 public class JmsConfig {
