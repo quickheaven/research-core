@@ -1,16 +1,14 @@
 package com.foanequity.research;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class RootControllerTest {
 
   private static final Logger logger = LoggerFactory.getLogger(RootControllerTest.class);
@@ -22,14 +20,14 @@ public class RootControllerTest {
   @Test
   public void checkGetShaByMessageDigest() {
     String actualResult = controller.getShaByMessageDigest(TEXT);
-    assertNotNull(actualResult);
+    Assertions.assertNotNull(actualResult);
     logger.info(actualResult);
   }
 
   @Test
   public void checkGetShaByDigestUtils() {
     String actualResult = controller.getShaByDigestUtils(TEXT);
-    assertNotNull(actualResult);
+    Assertions.assertNotNull(actualResult);
     logger.info(actualResult);
   }
 
@@ -37,6 +35,6 @@ public class RootControllerTest {
   public void checkShaResult() {
     String sha1 = controller.getShaByMessageDigest(TEXT);
     String sha2 = controller.getShaByDigestUtils(TEXT);
-    assertEquals(sha1, sha2);
+    Assertions.assertEquals(sha1, sha2);
   }
 }
