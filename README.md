@@ -5,6 +5,9 @@ Project for my research
 
 ### Release Notes:
 
+#### 2024.08.15
+Upgraded the Soap Server and Client spring-boot to 3.3.2.
+
 #### 2024.06.01
 Upgraded the Soap Server and Client spring-boot to 3.3.0.
 
