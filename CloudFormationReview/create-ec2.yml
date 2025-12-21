@@ -1,0 +1,28 @@
+Parameters:
+  LatestAmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64'
+
+Resources:
+  # 1. Define the configuration here
+  MySpotLaunchTemplate:
+    Type: 'AWS::EC2::LaunchTemplate'
+    Properties:
+      LaunchTemplateData:
+        ImageId: !Ref LatestAmiId
+        InstanceType: t3.nano
+        InstanceMarketOptions:
+          MarketType: spot
+          SpotOptions:
+            SpotInstanceType: one-time
+
+  # 2. Tell the instance to use the template above
+  SimpleEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref MySpotLaunchTemplate
+        Version: !GetAtt MySpotLaunchTemplate.LatestVersionNumber
+      Tags:
+        - Key: Name
+          Value: MySimpleSpotInstance
