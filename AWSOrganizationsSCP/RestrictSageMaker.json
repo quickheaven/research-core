@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "RestrictSagemakerNotebooks",
+      "Effect": "Deny",
+      "Action": [
+        "sagemaker:CreateNotebookInstance",
+        "sagemaker:CreateApp"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "ForAnyValue:StringNotLike": {
+          "sagemaker:InstanceTypes": [
+            "ml.t2.*",
+            "ml.t3.*",
+            "ml.m5.large",
+            "system"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyProvisioning",
+      "Effect": "Deny",
+      "Action": [
+        "ec2:RunInstances",
+        "sagemaker:Create*",
+        "rds:CreateDBInstance",
+        "lambda:CreateFunction",
+        "redshift:CreateCluster",
+        "eks:CreateCluster"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
